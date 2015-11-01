@@ -1,9 +1,10 @@
 #!/usr/bin/python
-
 __author__ = 'rbuzatu'
+
 import yaml
 import sys
 import argparse
+import subprocess
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--env_name', required=True,
@@ -41,4 +42,6 @@ config["debug"] = args.debug
 with open(salt_env_dir+"environment.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
-
+subprocess.call(["salt-call", "--local", "saltutil.refresh_pillar"])
+subprocess.call(["salt-call", "--local", "saltutil.sync_all"])
+subprocess.call(["salt-call", "--local", "state.highstate"])
