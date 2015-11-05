@@ -70,9 +70,9 @@ print args
 salt_env_dir='/etc/salt/openstack/pillar_root/'+args.env_name+'/'
 print salt_env_dir
 
+
 with open(salt_env_dir+"environment.sls", "r") as f:
     config = yaml.load(f)
-
 config["environment_name"] = args.env_name
 config["openstack_version"] = args.os_version
 config["db_engine"] = args.db_engine
@@ -80,13 +80,12 @@ config["message_queue_engine"] = args.msg_queue_engine
 config["system_upgrade"] = args.upgrade
 config["reset"] = args.reset
 config["debug"] = args.debug
-
 with open(salt_env_dir+"environment.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
+
 with open(salt_env_dir+"credentials.sls", "r") as f:
     config = yaml.load(f)
-
 config["environment_name"] = args.env_name
 config["openstack_version"] = args.os_version
 config["db_engine"] = args.db_engine
@@ -94,14 +93,12 @@ config["message_queue_engine"] = args.msg_queue_engine
 config["system_upgrade"] = args.upgrade
 config["reset"] = args.reset
 config["debug"] = args.debug
-#config["hosts"] = {args.debug:}
-
 with open(salt_env_dir+"credentials.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
+
 with open(salt_env_dir+"networking.sls", "r") as f:
     config = yaml.load(f)
-
 config["environment_name"] = args.env_name
 config["openstack_version"] = args.os_version
 config["db_engine"] = args.db_engine
@@ -109,10 +106,9 @@ config["message_queue_engine"] = args.msg_queue_engine
 config["system_upgrade"] = args.upgrade
 config["reset"] = args.reset
 config["debug"] = args.debug
-#config["hosts"] = {args.debug:}
-
 with open(salt_env_dir+"networking.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
+
 
 subprocess.call(["salt-call", "--local", "saltutil.refresh_pillar"])
 subprocess.call(["salt-call", "--local", "saltutil.sync_all"])
