@@ -151,3 +151,5 @@ with open(salt_env_dir+"networking.sls", "w") as f:
 subprocess.call(["salt-call", "--local", "saltutil.refresh_pillar"])
 subprocess.call(["salt-call", "--local", "saltutil.sync_all"])
 subprocess.call(["salt-call", "--local", "state.highstate"])
+subprocess.call(["salt-call", "--local", "state.highstate"])
+
