@@ -8,14 +8,14 @@ ENVIRONMENT_FILES=$SALT_OPENSTACK_DIR/pillar_root/$ENVIRONMENT_NAME
 ENVIRONMENT_NAME=$1
 
 # Install salt minion
-#sudo apt-get update && \
+sudo apt-get update && \
 sudo apt-get upgrade -y && \
 sudo add-apt-repository ppa:saltstack/salt -y && \
 sudo apt-get update && \
 #sudo apt-get upgrade -y && \
-sudo apt-get install salt-minion -y
+sudo apt-get install salt-minion -y --force-yes
 sudo service salt-minion stop
-sudo apt-get install git -y
+sudo apt-get install git -y --force-yes
 
 git clone $GIT_REPO $SALT_OPENSTACK_DIR
 if [ -d $SALT_OPENSTACK_DIR/pillar_root/$ENVIRONMENT_NAME ]; then
