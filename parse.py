@@ -80,32 +80,70 @@ config["message_queue_engine"] = args.msg_queue_engine
 config["system_upgrade"] = args.upgrade
 config["reset"] = args.reset
 config["debug"] = args.debug
+config["cinder_volumes_group_name"] = args.cinder_volumes_group_name
+config["cinder_volumes_path"] = args.cinder_volumes_path
+config["cinder_volumes_group_size"] = args.cinder_volumes_group_size
+config["cinder_loopback_device"] = args.cinder_loopback_device
+config["cpu_allocation_ratio"] = args.cpu_allocation_ratio
+config["ram_allocation_ratio"] = args.ram_allocation_ratio
+config["glance_copy_from"] = args.glance_copy_from
+config["glance_disk_format"] = args.glance_disk_format
+config["glance_container_format"] = args.glance_container_format
+config["glance_is_public"] = args.glance_is_public
+config["glance_protected"] = args.glance_protected
+
 with open(salt_env_dir+"environment.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
 
 with open(salt_env_dir+"credentials.sls", "r") as f:
     config = yaml.load(f)
-config["environment_name"] = args.env_name
-config["openstack_version"] = args.os_version
-config["db_engine"] = args.db_engine
-config["message_queue_engine"] = args.msg_queue_engine
-config["system_upgrade"] = args.upgrade
-config["reset"] = args.reset
-config["debug"] = args.debug
+config["db_password"] = args.db_password
+config["message_queue_user"] = args.message_queue_user
+config["message_queue_password"] = args.message_queue_password
+config["nova_db_name"] = args.nova_db_name
+config["nova_db_username"] = args.nova_db_username
+config["nova_db_password"] = args.nova_db_password
+config["keystone_db_name"] = args.keystone_db_name
+config["keystone_db_user"] = args.keystone_db_user
+config["keystone_db_password"] = args.keystone_db_password
+config["cinder_db_name"] = args.cinder_db_name
+config["cinder_db_user"] = args.cinder_db_user
+config["cinder_db_password"] = args.cinder_db_password
+config["glance_db_name"] = args.glance_db_name
+config["glance_db_user"] = args.glance_db_user
+config["glance_db_password"] = args.glance_db_password
+config["neutron_db_name"] = args.neutron_db_name
+config["neutron_db_user"] = args.neutron_db_user
+config["neutron_db_password"] = args.neutron_db_password
+config["heat_db_name"] = args.heat_db_name
+config["heat_db_user"] = args.heat_db_user
+config["heat_db_password"] = args.heat_db_password
+config["neutron_metadata_secret"] = args.neutron_metadata_secret
+config["keystone_admin_token"] = args.keystone_admin_token
+config["overwrite_all_password"] = args.overwrite_all_password
+config["keystonerc_location"] = args.keystonerc_location
+
+
 with open(salt_env_dir+"credentials.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
 
 with open(salt_env_dir+"networking.sls", "r") as f:
     config = yaml.load(f)
-config["environment_name"] = args.env_name
-config["openstack_version"] = args.os_version
-config["db_engine"] = args.db_engine
-config["message_queue_engine"] = args.msg_queue_engine
-config["system_upgrade"] = args.upgrade
-config["reset"] = args.reset
-config["debug"] = args.debug
+config["neutron_integration_bridge"] = args.neutron_integration_bridge
+config["neutron_external_bridge"] = args.neutron_external_bridge
+config["network_interface_name"] = args.network_interface_name
+config["vlan_range"] = args.vlan_range
+config["tunelling_enabled"] = args.tunelling_enabled
+config["tunelling_type"] = args.tunelling_type
+config["tunneling_bridge"] = args.tunneling_bridge
+config["public_subnet_cidr"] = args.public_subnet_cidr
+config["public_subnet_allocation_pool_start"] = args.public_subnet_allocation_pool_start
+config["public_subnet_allocation_pool_end"] = args.public_subnet_allocation_pool_end
+config["public_subnet_dhcp_enabled"] = args.public_subnet_dhcp_enabled
+config["public_subnet_gateway_ip"] = args.public_subnet_gateway_ip
+config["private_subnet_cidr"] = args.private_subnet_cidr
 with open(salt_env_dir+"networking.sls", "w") as f:
     f.write(yaml.dump(config, default_flow_style=False))
 
