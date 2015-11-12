@@ -139,7 +139,7 @@ with open(salt_env_dir+"networking.sls", "r") as f:
 config["neutron"]["integration_bridge"] = args.neutron_integration_bridge
 config["neutron"]["external_bridge"] = args.neutron_external_bridge
 config["neutron"]["single_nic"]["interface"] = args.network_interface_name
-config["neutron"]["vlan"]["physnets"]["physnet1"]["vlan_range"] = args.vlan_range
+config["neutron"]["type_drivers"]["vlan"]["physnets"]["physnet1"]["vlan_range"] = args.vlan_range
 config["neutron"]["tunelling"]["enable"] = args.tunelling_enabled
 config["neutron"]["tunelling"]["types"] = args.tunelling_type
 config["neutron"]["tunneling"]["bridge"] = args.tunneling_bridge
