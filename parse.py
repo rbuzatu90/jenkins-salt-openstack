@@ -52,6 +52,7 @@ parser.add_argument("--heat_db_password", required=True, type=str)
 parser.add_argument("--neutron_metadata_secret", required=True, type=str)
 parser.add_argument("--keystone_admin_token", required=True, type=str)
 parser.add_argument("--overwrite_all_password", required=True, type=str)
+parser.add_argument("--admin_password", required=True, type=str)
 parser.add_argument("--keystonerc_location", required=True, type=str)
 
 # Networking options
@@ -126,6 +127,7 @@ config["databases"]["heat"]["username"] = args.heat_db_user
 config["databases"]["heat"]["password"] = args.heat_db_password
 config["neutron"]["metadata_secret"] = args.neutron_metadata_secret
 config["keystone"]["admin_token"] = args.keystone_admin_token
+config["keystone"]["tenants"]["admin"]["users"]["admin"]["password"] = args.admin_password
 #config["overwrite_all_password"] = args.overwrite_all_password
 config["keystone"]["tenants"]["admin"]["users"]["admin"]["keystonerc"]["path"] = args.keystonerc_location
 
