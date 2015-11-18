@@ -148,7 +148,7 @@ config["neutron"]["tunneling"]["bridge"] = args.tunneling_bridge
 config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["cidr"] = args.public_subnet_cidr
 config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["allocation_pools"][0]["start"] = args.public_subnet_allocation_pool_start
 config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["allocation_pools"][0]["end"] = args.public_subnet_allocation_pool_end
-config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["dhcp_enabled"] = args.public_subnet_dhcp_enabled
+config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["enable_dhcp"] = args.public_subnet_dhcp_enabled
 config["neutron"]["networks"]["public"]["subnets"]["public_subnet"]["gateway_ip"] = args.public_subnet_gateway_ip
 config["neutron"]["networks"]["private"]["subnets"]["private_subnet"]["cidr"] = args.private_subnet_cidr
 with open(salt_env_dir+"networking.sls", "w") as f:
